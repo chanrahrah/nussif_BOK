@@ -22,7 +22,7 @@ st.caption("Macro transmission–based analysis")
 # ----------------------------------
 @st.cache_data
 def load_data():
-    df = pd.read_csv(r'C:\Users\User\Documents\NUS\Projects\NUSSIF\data\cleaned_full_data.csv', parse_dates=["date"])
+    df = pd.read_csv(r'data\cleaned_full_data.csv' parse_dates=["date"])
     df = df.set_index("date").sort_index()
     return df
 
