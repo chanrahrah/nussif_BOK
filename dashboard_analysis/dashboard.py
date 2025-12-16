@@ -23,7 +23,8 @@ st.caption("Macro transmission–based analysis")
 # ----------------------------------
 @st.cache_data
 def load_data():
-    file_path = os.path.join('data', 'cleaned_full_data.csv')
+    file_path = os.path.join('data', 'cleaned_full_data.csv') # Uncomment for streamlit cloud deployment
+    # file_path = "../data/cleaned_full_data.csv"  # Uncomment for Local relative path for development
     if not os.path.exists(file_path):
         st.error(f"Error: Dataset not found at path: {file_path}")
         st.stop() # Stops the script execution gracefully
@@ -66,79 +67,4 @@ with tabs[1]:
 with tabs[2]:
     render_debt_stability_tab(df)   
 
-# # ==================================
-# # 🟨 Tab 3: Growth & Business Cycle
-# # ==================================
-# with tabs[3:
-#     st.subheader("Growth & Business Cycle")
 
-#     growth = st.selectbox(
-#         "Growth Indicator",
-#         [
-#             "Gross domestic product at market prices(GDP)",
-#             "Gross national income(GNI)"
-#         ]
-#     )
-
-#     sentiment = st.selectbox(
-#         "Sentiment Indicator",
-#         ["Composite Consumer Sentiment Index"]
-#     )
-
-#     plot_pair(
-#         df,
-#         growth,
-#         sentiment,
-#         "Growth vs Consumer Sentiment"
-#     )
-
-# # ==================================
-# # 🟥 Tab 4: Asset Markets
-# # ==================================
-# with tabs[4]
-#   st.subheader("Asset Markets & Financial Conditions")
-
-#     asset = st.selectbox(
-#         "Asset Market Indicator",
-#         [
-#             "KOSPI_Index(End Of)",
-#             "KOSDAQ_Index(End of)",
-#             "All Groups",
-#             "Apartment"
-#         ]
-#     )
-
-#     policy = st.selectbox(
-#         "Policy / Rate Indicator",
-#         ["base_rate"]
-#     )
-
-#     plot_pair(
-#         df,
-#         asset,
-#         policy,
-#         "Asset Prices vs Monetary Policy"
-#     )
-
-# # ==================================
-# # 🟪 Tab 5: External Sector
-# # ==================================
-# with tabs[5]:
-#     st.subheader("External Sector & Capital Flows")
-
-#     fx = st.selectbox(
-#         "Exchange Rate",
-#         ["Won per United States Dollar (Close 15:30)"]
-#     )
-
-#     capital = st.selectbox(
-#         "Capital Flow / Allocation",
-#         ["global_equity", "govt_debt_foreign"]
-#     )
-
-#     plot_pair(
-#         df,
-#         fx,
-#         capital,
-#         "Exchange Rate & Capital Flows"
-#     )
